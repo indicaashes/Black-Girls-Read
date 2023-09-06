@@ -14,15 +14,25 @@ const BookSchema = new mongoose.Schema(
                 trim: true 
             },
             authors: {
-                type: [{type: String}],
+                type: String,
                 required: true
             },
-            averageRating: Number,
-            ratingsCount: Number,
-            maturityRating: String,
-            imageLinks: {smallThumbnail: {type:String}, thumbnail: {type:String}},
-        },
-        ratings: [{type: ObjectId, ref: 'Rating'}]
+            genre: {
+                type: String,
+                required: true,
+            },
+            maturityRating: {
+            type: String,
+            enum: "G", "PG","PG-13", "MA",
+            required: true
+            },
+            bookRating: {
+                type: Number
+            },
+            botm: {
+            type: Boolean,
+            required: true
+        },        
     },
     {timestamps: true}
 )
