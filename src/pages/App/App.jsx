@@ -3,10 +3,10 @@ import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
+import Home from '../Home/Home';
 import Books from '../Books/Books';
 import Forums from '../Forums/Forums';
 import Profile from '../Profile/Profile';
-
 import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {
@@ -15,13 +15,15 @@ export default function App() {
   return (
     <main className="App">
       { user ?
-          <>
+          <>          <h1>{user}!</h1>
+
             <NavBar user={user} setUser={setUser} />
             <Routes>
               {/* Route components in here */}
-              <Route path="/forums" element={<forums />} />
-              <Route path="/books" element={<books />} />
-              <Route path="/profile" element={<profile />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/forums" element={<Forums />} />
+              <Route path="/books" element={<Books />} />
+              <Route path="/profile" element={<Profile />} />
             </Routes>
           </>
           :
