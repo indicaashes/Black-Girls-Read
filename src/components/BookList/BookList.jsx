@@ -7,7 +7,6 @@ const BookList = ({ books }) => {
       <ul>
         {books.map((book, index) => (
           <li key={index}>
-            <img src={book.posterPath} alt={`Poster for ${book.title}`} />
             <h3>{book.title}</h3>
             <p>Author: {book.author}</p>
             <p>Genre: {book.genre}</p>

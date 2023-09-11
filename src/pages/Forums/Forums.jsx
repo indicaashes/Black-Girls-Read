@@ -8,7 +8,7 @@ export default function Forums() {
   
   return (
     <>
-      <h1>Forums</h1>
+      <h1>Community Forums</h1>
       <button onClick={handleCheckToken}>Check When My Login Expires</button>
     </>
   );

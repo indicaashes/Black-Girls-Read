@@ -1,15 +1,15 @@
-import React from 'react';
-import { books } from './src/pages/Books/data.js'; 
-import BookList from './components/BookList/BookList'; 
+import { checkToken } from '../../utilities/users-service';
 
-function Books() {
+export default function Books() {
+  async function handleCheckToken() {
+    const expDate = await checkToken();
+    console.log(expDate);
+  }
+  
   return (
-    <div>
-      <h1>Welcome to the Books Page</h1>
-      <BookList books={books} /> {/* Pass the book data as a prop */}
-    </div>
+    <>
+      <h1>Our Books</h1>
+      <button onClick={handleCheckToken}>Check When My Login Expires</button>
+    </>
   );
 }
-
-export default Books;
-
