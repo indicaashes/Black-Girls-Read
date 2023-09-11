@@ -23,7 +23,7 @@ const BookSchema = new mongoose.Schema(
             },
             maturityRating: {
             type: String,
-            enum: "G", "PG","PG-13", "MA",
+            enum: ['G', 'PG','PG-13', 'MA'],
             required: true
             },
             bookRating: {
@@ -32,9 +32,11 @@ const BookSchema = new mongoose.Schema(
             botm: {
             type: Boolean,
             required: true
-        },        
-    },
+        },    
+        
     {timestamps: true}
+
+    },
 )
 
 const Book = mongoose.model('Book', BookSchema)
