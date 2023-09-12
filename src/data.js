@@ -1,6 +1,6 @@
 export const books = [
     {
-        "posterPath": "https://image.tmdb.org/t/p/w500/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg",
+        "posterPath": "https://i.imgur.com/fQWm52v.jpg",
         "author": "Toni Morison",
         "title": "Beloved",
         "genre": "Historical Fiction",
@@ -8,7 +8,7 @@ export const books = [
 
     },
     {
-        "posterPath": "https://image.tmdb.org/t/p/w500/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg",
+        "posterPath": "https://i.imgur.com/7L4rPjY.jpg",
         "author": "Lorraine Hansberry",
         "title": "A Raisin in the Sun",
         "genre": "Domestic Drama",
@@ -16,7 +16,7 @@ export const books = [
 
     },
     {
-        "posterPath": "https://image.tmdb.org/t/p/w500/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg",
+        "posterPath": "https://i.imgur.com/6HrelZx.jpg",
         "author": "Alice Walker",
         "title": "The Color Purple",
         "genre": "Domestic Fiction",
@@ -24,7 +24,7 @@ export const books = [
 
     },
     {
-        "posterPath": "https://image.tmdb.org/t/p/w500/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg",
+        "posterPath": "https://i.imgur.com/tK4mMlq.jpg",
         "author": "Tomi Adeyemi",
         "title": "Children of Blood and Bone",
         "genre": "Fantasy Fiction",
@@ -32,7 +32,7 @@ export const books = [
 
     },
     {
-        "posterPath": "https://image.tmdb.org/t/p/w500/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg",
+        "posterPath": "https://i.imgur.com/qiXkF8X.jpg",
         "author": "James Baldwin",
         "title": "Go Tell It on the Mountain",
         "genre": "Fiction",
@@ -42,7 +42,5 @@ export const books = [
     
   ];
 
-  module.exports = {
-    books
-  }
+ 
   

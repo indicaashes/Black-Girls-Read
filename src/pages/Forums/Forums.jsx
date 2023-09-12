@@ -1,15 +1,19 @@
-import { checkToken } from '../../utilities/users-service';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { books } from '../../data';
 
 export default function Forums() {
-  async function handleCheckToken() {
-    const expDate = await checkToken();
-    console.log(expDate);
-  }
-  
   return (
-    <>
-      <h1>Community Forums</h1>
-      <button onClick={handleCheckToken}>Check When My Login Expires</button>
-    </>
+    <div>
+      <h1>Discussion Forums</h1>
+      <ul>
+        {books.map((book) => (
+          <li key={book.title}>
+
+<Link to={`/forums/${book.title}`}>{book.title} Discussions</Link>          
+</li>
+        ))}
+      </ul>
+    </div>
   );
 }
