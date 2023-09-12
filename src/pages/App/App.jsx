@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
-import Home from '../Home/Home';
 import BookListPage from '../BookListPage/BookListPage';
 import BookDetailsPage from '../BookDetailsPage/BookDetailsPage';
 import DiscussionsList from '../DiscussionsList/DiscussionsList';
@@ -22,9 +21,8 @@ export default function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             {/* Route components in here */}
-            <Route path="/home" element={<Home />} />
             <Route path="/forums" element={<Forums />} />
-            <Route path="/forums/:bookTitle" element={<DiscussionsList />} />
+            <Route path="/forums/:bookTitle" element={<DiscussionsList />} />            
             <Route path="/booklistpage" element={<BookListPage />} />
             <Route path="/books/:bookName" element={<BookDetailsPage books={books} />} />
             <Route path="/profile" element={<Profile />} />
