@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import apiService from '../../utilities/discussions-service';
+import * as apiService from '../../utilities/discussions-api.js';
+import { useLocation } from 'react-router-dom';
 
 const DiscussionsList = () => {
+  const location = useLocation ()
+  const book = location.state.book
   const [newDiscussionData, setNewDiscussionData] = useState({
     month: '',
     year: '',
@@ -13,7 +16,7 @@ const DiscussionsList = () => {
   useEffect(() => {
     async function fetchDiscussions() {
       try {
-        const discussionsData = await apiService.getDiscussionsForBook();
+        const discussionsData = await apiService.getDiscussionsForBook(book._id);
         setDiscussions(discussionsData);
       } catch (error) {
         console.error('Error fetching discussions:', error.message);
@@ -37,7 +40,7 @@ const DiscussionsList = () => {
       };
 
       const response = await apiService.createDiscussion(newDiscussion);
-
+      console.log("function working")
       if (response.status === 201) {
         setDiscussions([...discussions, response.data]);
         setNewDiscussionData({

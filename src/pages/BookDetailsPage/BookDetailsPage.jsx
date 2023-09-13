@@ -24,7 +24,7 @@ function BookDetailsPage({ books }) {
         <h3>Genre: {book.genre}</h3>
         <p>Maturity Rating: {book.maturity}</p>
         
-        <Link to={`/forums/${book.title}`}>Discuss this book</Link>
+        <Link to={`/forums/${book.title}`} state = {book}>Discuss this book</Link>
       </div>
       <img src={book.posterPath} alt={book.title} />
     </div>

@@ -1,6 +1,6 @@
 import sendRequest from "./send-request";
 
-const BASE_URL = 'http://localhost:3000/api/discussions';
+const BASE_URL = 'http://localhost:3001/api/discussions';
 
 export async function createDiscussion(discussionData) {
   try {
