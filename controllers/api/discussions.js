@@ -1,7 +1,6 @@
-const DiscussionPost = require('../../models/discussion'); // Import your Mongoose model
+const DiscussionPost = require('../../models/discussion'); 
 
 
-// Create a new discussion post
 const createDiscussion = async (req, res) => {
   try {
     const { bookId, month, year, details } = req.body;
@@ -22,7 +21,7 @@ const createDiscussion = async (req, res) => {
   }
 };
 
-// Get discussions for a specific book
+
 const getDiscussionsForBook = async (req, res) => {
   try {
     const { bookId } = req.params;
@@ -36,7 +35,7 @@ const getDiscussionsForBook = async (req, res) => {
   }
 };
 
-// Update a discussion post
+
 const updateDiscussion = async (req, res) => {
   try {
     const { discussionId } = req.params;
@@ -45,7 +44,7 @@ const updateDiscussion = async (req, res) => {
     const updatedDiscussion = await DiscussionPost.findByIdAndUpdate(
       discussionId,
       { details },
-      { new: true } // Return the updated discussion
+      { new: true } 
     );
 
     if (!updatedDiscussion) {
@@ -59,7 +58,6 @@ const updateDiscussion = async (req, res) => {
   }
 };
 
-// Delete a discussion post
 const deleteDiscussion = async (req, res) => {
   try {
     const { discussionId } = req.params;

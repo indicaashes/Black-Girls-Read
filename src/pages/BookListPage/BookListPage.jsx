@@ -1,20 +1,48 @@
-import React from 'react';
-import BookCard from '../../components/BookCard/BookCard';  
-import { books } from '../../data'; 
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-
-export default function BookListPage() {
+function BookListPage() {
+  const [books, setBooks] = useState([]);
+  const navigate = useNavigate(); 
   
-  return (
+  const fetchBooks = async () => {
+    try {
+      const apiUrl = '/api/books';
+      const response = await fetch(apiUrl);
 
-    
-    <div className="container">
-      {
-        books.map(book => (
-          <BookCard key={book.title} book={book} />
-        ))
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
       }
+
+      const data = await response.json();
+      setBooks(data);
+    } catch (error) {
+      console.error('Error fetching books:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchBooks();
+  }, []);
+
+
+  const navigateToCreateBookPage = () => {
+    navigate('/createbookpage'); 
+    
+  };
+
+  return (
+    <div>
+      <h1>Book List</h1>
+      <button onClick={navigateToCreateBookPage}>Add New Book</button> 
+      
+      <ul>
+        {books.map((book) => (
+          <li key={book._id}>{book.title}</li>
+        ))}
+      </ul>
     </div>
   );
 }
 
+export default BookListPage;

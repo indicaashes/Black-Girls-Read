@@ -2,9 +2,11 @@ const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
+const cors = require('cors'); 
 
 // Always require and configure near the top
 require('dotenv').config();
+
 // Connect to the database
 require('./config/database');
 
@@ -22,18 +24,23 @@ app.use(express.static(path.join(__dirname, 'build')));
 // assign the user object from the JWT to req.user
 app.use(require('./config/checkToken'));
 
+// Use CORS middleware with specific origin
+app.use(cors({ origin: 'http://localhost:3000' }));
+
 const port = process.env.PORT || 3001;
 
-// Put API routes here, before the "catch all" route
+// Put API routes here
 app.use('/api/users', require('./routes/api/users'));
-app.use('/api/discussions', require('./routes/api/discussions')); 
+app.use('/api/discussions', require('./routes/api/discussions'));
+app.use('/api/books', require('./routes/api/books'));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests
-app.get('/*', function(req, res) {
+app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(port, function() {
+// Start the server
+app.listen(port, function () {
   console.log(`Express app running on port ${port}`);
 });

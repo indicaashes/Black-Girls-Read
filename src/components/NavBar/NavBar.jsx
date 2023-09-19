@@ -13,8 +13,6 @@ export default function NavBar({ user, setUser }) {
       &nbsp; | &nbsp;
       <Link to="/booklistpage">Books</Link>
       &nbsp; | &nbsp;
-      <Link to="/forums">Community Forum</Link>
-      &nbsp; | &nbsp;
       <Link to="/profile">My Profile</Link>
       &nbsp; | &nbsp;
       <span>Welcome Back {user.name}, we missed you sis!</span>
