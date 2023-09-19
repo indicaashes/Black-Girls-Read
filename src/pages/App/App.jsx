@@ -8,7 +8,6 @@ import BookDetailsPage from '../BookDetailsPage/BookDetailsPage';
 import CreateBookPage from '../CreateBookPage/CreateBookPage';
 import Profile from '../Profile/Profile';
 import NavBar from '../../components/NavBar/NavBar';
-import { books } from '../../seed';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -22,7 +21,7 @@ export default function App() {
             {/* Route components in here */}
             <Route path="/createbookpage" element={<CreateBookPage />} />
             <Route path="/booklistpage" element={<BookListPage />} /> 
-           <Route path="/books/:bookName" element={<BookDetailsPage books={books} />} />
+           <Route path="/books/:bookName" element={<BookDetailsPage />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </>

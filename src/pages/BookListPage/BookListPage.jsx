@@ -7,15 +7,15 @@ function BookListPage() {
   
   const fetchBooks = async () => {
     try {
-      const apiUrl = '/api/books';
+      const apiUrl = 'http://localhost:3001/api/books';
       const response = await fetch(apiUrl);
 
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
 
-      const data = await response.json();
-      setBooks(data);
+      setBooks(response);
+      console.log(response)
     } catch (error) {
       console.error('Error fetching books:', error);
     }

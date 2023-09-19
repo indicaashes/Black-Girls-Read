@@ -1,6 +1,4 @@
-const Book = require('../../models/book');
-
-const books = [];
+const Book = require('../../models/bookSchema');
 
 module.exports = {
   index,
@@ -10,9 +8,8 @@ module.exports = {
 async function index(req, res) {
   try {
     const booksData = await Book.find({}).sort('name').populate('genre').exec();
-
-    const sortedBooks = booksData.sort((a, b) => a.genre.sortBook - b.genre.sortBook);
-    res.json(sortedBooks);
+  res.send(booksData)
+console.log(booksData)
   } catch (error) {
     console.error('Error fetching books:', error.message);
     res.status(500).json({ message: 'Server Error' });
