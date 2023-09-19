@@ -12,6 +12,8 @@ require('./config/database');
 
 const app = express();
 
+app.use(cors());
+
 app.use(logger('dev'));
 app.use(express.json());
 
@@ -25,7 +27,6 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(require('./config/checkToken'));
 
 // Use CORS middleware with specific origin
-app.use(cors({ origin: 'http://localhost:3000' }));
 
 const port = process.env.PORT || 3001;
 

@@ -1,9 +1,8 @@
-const Genre = require('./models/genre');
-const Book = require('./models/bookSchema');
-
 require('dotenv').config();
 require('./config/database');
 
+const Genre = require('./models/genre');
+const Book = require('./models/bookSchema');
 
 (async function() {
     await Genre.deleteMany({});
