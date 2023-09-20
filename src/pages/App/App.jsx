@@ -8,6 +8,7 @@ import BookDetailsPage from '../BookDetailsPage/BookDetailsPage';
 import CreateBookPage from '../CreateBookPage/CreateBookPage';
 import Profile from '../Profile/Profile';
 import NavBar from '../../components/NavBar/NavBar';
+import CreatePostPage from '../CreatePostPage/CreatePostPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -22,6 +23,7 @@ export default function App() {
             <Route path="/createbookpage" element={<CreateBookPage />} />
             <Route path="/booklistpage" element={<BookListPage />} /> 
            <Route path="/books/:bookName" element={<BookDetailsPage />} />
+           <Route path="/books/:bookName/post" element={<CreatePostPage />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </>

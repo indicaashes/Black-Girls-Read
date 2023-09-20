@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react';
 
 function BookDetailsPage({  }) {
 let location = useLocation()
+let navigate = useNavigate()
 const bookid = location.state.book._id
 
 const [book, setBook] = useState({});
@@ -18,6 +19,11 @@ useEffect(() => {
     }
     getBook(bookid)
   }, []);
+  
+  const navigateToCreatePostPage = (book) => {
+    navigate(`/books/${book.title.toLowerCase().replace(/\s/g, "-")}/post`, {state:{book:book}}); 
+    
+  };
 
   if (!book) {
 
@@ -36,7 +42,7 @@ useEffect(() => {
        <h3>Genre: {book.genre?.name}</h3>
         <p>Maturity Rating: {book.maturity}</p>
         
-        <Link to={`/forums/${book.title}`} state = {book}>Discuss this book</Link>
+        <button onClick={() => navigateToCreatePostPage(book)}> Create Post </button>
       </div>
       <img src={book.posterPath} alt={book.title} />
     </div>

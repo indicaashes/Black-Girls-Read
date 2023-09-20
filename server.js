@@ -32,7 +32,7 @@ const port = process.env.PORT || 3001;
 
 // Put API routes here
 app.use('/api/users', require('./routes/api/users'));
-app.use('/api/discussions', require('./routes/api/discussions'));
+app.use('/api/posts', require('./routes/api/posts'));
 app.use('/api/books', require('./routes/api/books'));
 
 // The following "catch all" route (note the *) is necessary
