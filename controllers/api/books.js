@@ -7,7 +7,7 @@ module.exports = {
 
 async function index(req, res) {
   try {
-    const booksData = await Book.find({}).sort('name').populate('genre').exec();
+    const booksData = await Book.find({}).populate('genre').exec();
   res.send(booksData)
 console.log(booksData)
   } catch (error) {
