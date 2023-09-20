@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import * as postsAPI from "../../utilities/posts-api";
-import sendRequest from '../../utilities/send-request';
 
 export default function CreatePostPage({user}){
     let location = useLocation()
