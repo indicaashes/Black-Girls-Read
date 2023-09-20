@@ -26,6 +26,7 @@ export default function CreatePostPage({user}){
         } catch (error){ 
            throw error
           }
+          window.history.back()
     }
 
     return(

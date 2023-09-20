@@ -27,6 +27,8 @@ export default function EditPostPage({user}){
         } catch (error){ 
            throw error
           }
+          window.history.back()
+
     }
 
     return(
@@ -36,7 +38,7 @@ export default function EditPostPage({user}){
         </h1>
         <form onSubmit={handleSubmit}>
             <input type="text" name="comment" onChange={handleChange} value={newPost.comment}/>
-        <button type="submit">Add Comment</button>
+        <button type="submit">Update Comment</button>
         </form>
         </div>
     )

@@ -42,6 +42,8 @@ useEffect(() => {
 
   const handleDeletePost = async (post) => {
     await postsAPI.deletePost(post._id)
+    window.location.reload()
+
   };
 
   if (!book) {
