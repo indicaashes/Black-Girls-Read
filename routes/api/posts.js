@@ -3,15 +3,15 @@ const router = express.Router();
 const postsCtrl = require('../../controllers/api/posts');
 
 // Create a new post
-router.post('/posts', postsCtrl.createPost);
+router.post('/', postsCtrl.createPost);
 
 // Fetch posts for a specific book
-router.get('/posts/book/:bookId', postsCtrl.getPostsForBook);
+router.get('/book/:bookId', postsCtrl.getPostsForBook);
 
 // Update a post
-router.put('/posts/:postId', postsCtrl.updatePost);
+router.put('/:postId', postsCtrl.updatePost);
 
 // Delete a post
-router.delete('/posts/:postId', postsCtrl.deletePost);
+router.delete('/:postId', postsCtrl.deletePost);
 
 module.exports = router;

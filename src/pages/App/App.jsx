@@ -23,7 +23,7 @@ export default function App() {
             <Route path="/createbookpage" element={<CreateBookPage />} />
             <Route path="/booklistpage" element={<BookListPage />} /> 
            <Route path="/books/:bookName" element={<BookDetailsPage />} />
-           <Route path="/books/:bookName/post" element={<CreatePostPage />} />
+           <Route path="/books/:bookName/post" element={<CreatePostPage user={user} />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </>

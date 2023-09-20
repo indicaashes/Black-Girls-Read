@@ -1,8 +1,8 @@
 import sendRequest from "./send-request";
 const BASE_URL = '/api/posts';
 
-export async function createPost(){
-    return sendRequest(BASE_URL, 'POST')
+export async function createPost(payload){
+    return sendRequest(BASE_URL, 'POST', payload)
 }
 
 export async function getPostsForBook(bookId){
