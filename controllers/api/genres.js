@@ -1,4 +1,4 @@
-const genre = require('../../models/genre');
+const genre = require('../../models/genreSchema');
 
 module.exports = {
     index,
@@ -7,7 +7,7 @@ module.exports = {
   
   async function index(req, res) {
     try {
-      const genresData = await genre.find({}).sort('name').populate('genre').exec();
+      const genresData = await genre.find({});
     res.send(genresData)
   console.log(genresData)
     } catch (error) {

@@ -9,4 +9,4 @@ const bookSchema = new Schema({
   maturity: {type: String},
 });
 
-module.exports= mongoose.model('Book', bookSchema);
+module.exports= bookSchema

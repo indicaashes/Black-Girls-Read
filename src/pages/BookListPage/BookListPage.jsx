@@ -1,28 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import * as booksAPI from "../../utilities/books-api";
 
 function BookListPage() {
   const [books, setBooks] = useState([]);
   const navigate = useNavigate(); 
   
-  const fetchBooks = async () => {
-    try {
-      const apiUrl = 'http://localhost:3001/api/books';
-      const response = await fetch(apiUrl);
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      setBooks(response);
-      console.log(response)
-    } catch (error) {
-      console.error('Error fetching books:', error);
-    }
-  };
-
+ 
   useEffect(() => {
-    fetchBooks();
+    async function getBooks () {
+      const books = await booksAPI.getallbooks()
+      setBooks(books)
+    }
+    getBooks()
   }, []);
 
 

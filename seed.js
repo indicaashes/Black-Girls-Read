@@ -1,17 +1,17 @@
 require('dotenv').config();
 require('./config/database');
 
-const Genre = require('./models/genre');
-const Book = require('./models/bookSchema');
+const Genre = require('./models/genreSchema');
+const Book = require('./models/books');
 
 (async function() {
     await Genre.deleteMany({});
     const genres = await Genre.create([
-      {genre: 'Historical Fiction'},
-      {genre: 'Domestic Drama'},
-      {genre: 'Domestic Fiction'},
-      {genre: 'Fantasy Fiction'},
-      {genre: 'Fiction'},
+      {name: 'Historical Fiction'},
+      {name: 'Domestic Drama'},
+      {name: 'Domestic Fiction'},
+      {name: 'Fantasy Fiction'},
+      {name: 'Fiction'},
     ]);
 
     console.log(genres)
