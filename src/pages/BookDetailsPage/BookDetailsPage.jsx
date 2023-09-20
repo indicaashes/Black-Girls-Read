@@ -34,7 +34,10 @@ useEffect(() => {
   
   const navigateToCreatePostPage = (book) => {
     navigate(`/books/${book.title.toLowerCase().replace(/\s/g, "-")}/post`, {state:{book:book}}); 
-    
+  };
+
+  const navigateToEditPostPage = (book, post) => {
+    navigate(`/books/${book.title.toLowerCase().replace(/\s/g, "-")}/post/${post._id}`, {state:{book:book, post:post}}); 
   };
 
   if (!book) {
@@ -65,7 +68,7 @@ useEffect(() => {
           (() => {
           if(user._id === post.user._id)
             return <div>
-              <button>Edit</button>
+              <button onClick={() => navigateToEditPostPage(book, post)}>Edit</button>
               <button>Delete</button>
             </div>
           })()

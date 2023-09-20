@@ -5,16 +5,25 @@ import * as postsAPI from "../../utilities/posts-api";
 export default function EditPostPage({user}){
     let location = useLocation()
     const book = location.state.book
-    const postId = location.state.post._id
-    const [post, setPost] = useState({
+    const post = location.state.post
+    const [newPost, setNewPost] = useState({
         book: book, 
         user: user, 
-        comment: "",
+        comment: post.comment,
 
     })
     
+    // useEffect(() => {
+    //     async function getBook(id) {
+    //       const book = await booksAPI.getbookbyID(id)
+    //       setBook(book)
+    //       console.log(book)
+    //       }
+    //       getBook(bookid)
+    //     }, []);
+
     function handleChange(evt){
-        setPost({ ...post, [evt.target.name]: evt.target.value});
+        setNewPost({ ...newPost, [evt.target.name]: evt.target.value});
         
     }
     
@@ -22,7 +31,7 @@ export default function EditPostPage({user}){
 
         evt.preventDefault();
         try {
-            const response = await postsAPI.editPost(postId, post.comment)
+            const response = await postsAPI.updatePost(post._id, newPost.comment)
 
         } catch (error){ 
            throw error
@@ -35,7 +44,7 @@ export default function EditPostPage({user}){
             {book.title}
         </h1>
         <form onSubmit={handleSubmit}>
-            <input type="text" name="comment" onChange={handleChange}/>
+            <input type="text" name="comment" onChange={handleChange} value={newPost.comment}/>
         <button type="submit">Add Comment</button>
         </form>
         </div>

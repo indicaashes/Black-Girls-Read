@@ -9,6 +9,7 @@ import CreateBookPage from '../CreateBookPage/CreateBookPage';
 import Profile from '../Profile/Profile';
 import NavBar from '../../components/NavBar/NavBar';
 import CreatePostPage from '../CreatePostPage/CreatePostPage';
+import EditPostPage from '../EditPostPage/EditPostPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -24,6 +25,7 @@ export default function App() {
             <Route path="/booklistpage" element={<BookListPage />} /> 
            <Route path="/books/:bookName" element={<BookDetailsPage user={user} />} />
            <Route path="/books/:bookName/post" element={<CreatePostPage user={user} />} />
+           <Route path="/books/:bookName/post/:postid" element={<EditPostPage user={user} />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </>
