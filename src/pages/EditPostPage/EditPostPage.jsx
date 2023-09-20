@@ -13,16 +13,7 @@ export default function EditPostPage({user}){
 
     })
     
-    // useEffect(() => {
-    //     async function getBook(id) {
-    //       const book = await booksAPI.getbookbyID(id)
-    //       setBook(book)
-    //       console.log(book)
-    //       }
-    //       getBook(bookid)
-    //     }, []);
-
-    function handleChange(evt){
+       function handleChange(evt){
         setNewPost({ ...newPost, [evt.target.name]: evt.target.value});
         
     }

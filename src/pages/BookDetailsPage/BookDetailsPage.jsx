@@ -40,6 +40,10 @@ useEffect(() => {
     navigate(`/books/${book.title.toLowerCase().replace(/\s/g, "-")}/post/${post._id}`, {state:{book:book, post:post}}); 
   };
 
+  const handleDeletePost = async (post) => {
+    await postsAPI.deletePost(post._id)
+  };
+
   if (!book) {
 
     return (
@@ -69,7 +73,7 @@ useEffect(() => {
           if(user._id === post.user._id)
             return <div>
               <button onClick={() => navigateToEditPostPage(book, post)}>Edit</button>
-              <button>Delete</button>
+              <button onClick={() => handleDeletePost(post)}>Delete</button>
             </div>
           })()
         }
