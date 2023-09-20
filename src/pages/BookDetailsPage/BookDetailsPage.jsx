@@ -6,7 +6,7 @@ import * as postsAPI from "../../utilities/posts-api";
 
 
 
-function BookDetailsPage({  }) {
+function BookDetailsPage({ user }) {
 let location = useLocation()
 let navigate = useNavigate()
 const bookid = location.state.book._id
@@ -61,6 +61,15 @@ useEffect(() => {
         <div>
         <p>{post.user.name} says: {post.comment}</p>
         <p>{new Date(post.updatedAt).toLocaleDateString()}</p>
+        {
+          (() => {
+          if(user._id === post.user._id)
+            return <div>
+              <button>Edit</button>
+              <button>Delete</button>
+            </div>
+          })()
+        }
         </div>
       ))}
     </div>

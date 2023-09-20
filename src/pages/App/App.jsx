@@ -22,7 +22,7 @@ export default function App() {
             {/* Route components in here */}
             <Route path="/createbookpage" element={<CreateBookPage />} />
             <Route path="/booklistpage" element={<BookListPage />} /> 
-           <Route path="/books/:bookName" element={<BookDetailsPage />} />
+           <Route path="/books/:bookName" element={<BookDetailsPage user={user} />} />
            <Route path="/books/:bookName/post" element={<CreatePostPage user={user} />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
