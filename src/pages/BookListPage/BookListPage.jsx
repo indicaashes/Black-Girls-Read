@@ -21,6 +21,11 @@ function BookListPage() {
     
   };
 
+  const navigateToBookDetailsPage = (book) => {
+    navigate(`/books/${book.title.toLowerCase().replace(/\s/g, "-")}`, {state:{book:book}}); 
+    
+  };
+
   return (
     <div>
       <h1>Book List</h1>
@@ -28,7 +33,10 @@ function BookListPage() {
       
       <ul>
         {books.map((book) => (
-          <li key={book._id}>{book.title}</li>
+          <li key={book._id}>{book.title}
+          <button onClick={() => navigateToBookDetailsPage(book)}>Details</button>
+          </li>
+
         ))}
       </ul>
     </div>

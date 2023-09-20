@@ -18,7 +18,7 @@ console.log(booksData)
 
 async function show(req, res) {
   try {
-    const book = await Book.findById(req.params.id);
+    const book = await Book.findById(req.params.id).populate('genre').exec();
     res.json(book);
   } catch (error) {
     console.error('Error fetching book:', error.message);
