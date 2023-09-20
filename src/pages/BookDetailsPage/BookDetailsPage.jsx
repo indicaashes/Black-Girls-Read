@@ -58,7 +58,10 @@ useEffect(() => {
       </div>
       <img src={book.posterPath} alt={book.title} />
       {posts.posts?.map(post => (
-        <p>post: {post.comment}</p>
+        <div>
+        <p>{post.user.name} says: {post.comment}</p>
+        <p>{new Date(post.updatedAt).toLocaleDateString()}</p>
+        </div>
       ))}
     </div>
 
